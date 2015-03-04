@@ -1,0 +1,60 @@
+##Listing of my shell macros
+##Add to .bash_profile or .bashrc with:
+##[[ -s ~/.my_shortcuts/.shortcuts ]]  && source ~/.my_shortcuts/.shortcuts
+
+echo 'Loading my shortcuts'
+
+#unix tools
+alias ll='ls -l'
+alias ls='ll -hFG'
+alias mkdir='mkdir -pv'
+alias ping='ping -c 3'
+alias wget='wget -c'
+
+#brew 
+export HOMEBREW_GITHUB_API_TOKEN=putThisInBashProfileNoQuotes
+export HOMEBREW_CASK_OPTS='--appdir=/Applications'
+
+alias brew_improve='brew update && brew upgrade && brew cleanup'
+
+function brew_cask_upgrade {
+	for i in $( brew cask list ); do
+        brew cask install $i
+    done
+}
+
+#git
+function git_closeout {
+  git checkout $2 && \
+  git pull es $2 && \
+  git branch -d "$1" && \
+  git push origin :"$1";
+}
+
+function git_dammit {
+  git checkout . ;
+}
+
+function git_rebase_upstream {
+  git checkout $2 && \
+  git pull $1 $2 &&  \
+  git push origin $2 && \
+  git checkout $3 && \
+  git merge $2 && \
+  git rebase -i $2; \
+}
+
+#Iterm Colors, shamelessly stolen from 
+#https://github.com/jacaetevha/finna-be-octo-hipster
+
+function tab_red()    { tab_color 195  89  76; }
+function tab_orange() { tab_color 219 154  88; }
+function tab_green()  { tab_color  65 174  76; }
+function tab_blue()   { tab_color  92 155 204; }
+function tab_yellow() { tab_color 240 240   0; }
+
+function tab_color() {
+  echo -n -e '\033]6;1;bg;red;brightness;$1\a'
+  echo -n -e '\033]6;1;bg;green;brightness;$2\a'
+  echo -n -e '\033]6;1;bg;blue;brightness;$3\a'
+}

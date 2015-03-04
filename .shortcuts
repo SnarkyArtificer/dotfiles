@@ -2,8 +2,6 @@
 ##Add to .bash_profile or .bashrc with:
 ##[[ -s ~/.my_shortcuts/.shortcuts ]]  && source ~/.my_shortcuts/.shortcuts
 
-echo 'Loading my shortcuts'
-
 #unix tools
 alias ll='ls -l'
 alias ls='ll -hFG'
@@ -18,6 +16,7 @@ export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 alias brew_improve='brew update && brew upgrade && brew cleanup'
 
 function brew_cask_upgrade {
+	brew update;
 	for i in $( brew cask list ); do
         brew cask install $i
     done
@@ -44,7 +43,12 @@ function git_rebase_upstream {
   git rebase -i $2; \
 }
 
-#Iterm Colors, shamelessly stolen from 
+#terminal functions
+function tab_name {
+  printf "\e]1;$1\a"
+}
+
+#terminal Colors, shamelessly stolen from 
 #https://github.com/jacaetevha/finna-be-octo-hipster
 
 function tab_red()    { tab_color 195  89  76; }
@@ -54,7 +58,7 @@ function tab_blue()   { tab_color  92 155 204; }
 function tab_yellow() { tab_color 240 240   0; }
 
 function tab_color() {
-  echo -n -e '\033]6;1;bg;red;brightness;$1\a'
-  echo -n -e '\033]6;1;bg;green;brightness;$2\a'
-  echo -n -e '\033]6;1;bg;blue;brightness;$3\a'
+  echo -n -e "\033]6;1;bg;red;brightness;$1\a"
+  echo -n -e "\033]6;1;bg;green;brightness;$2\a"
+  echo -n -e "\033]6;1;bg;blue;brightness;$3\a"
 }

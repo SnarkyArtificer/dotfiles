@@ -50,12 +50,16 @@ function tab_name {
 
 #terminal Colors, shamelessly stolen from 
 #https://github.com/jacaetevha/finna-be-octo-hipster
+#and tweaked to be ugly ;)
 
-function tab_red()    { tab_color 195  89  76; }
-function tab_orange() { tab_color 219 154  88; }
-function tab_green()  { tab_color  65 174  76; }
-function tab_blue()   { tab_color  92 155 204; }
-function tab_yellow() { tab_color 240 240   0; }
+function tab_red()    { tab_color 200 32  32; }
+function tab_orange() { tab_color 220 140 32; }
+function tab_green()  { tab_color 32  200 32; }
+function tab_light_blue()   { tab_color 32 64 200; }
+function tab_blue()   { tab_color 32  64 200; }
+function tab_purple()  { tab_color 160 32 160; }
+function tab_yellow() { tab_color 200 200 32; }
+function tab_white()  { tab_color 255 255 255; }
 
 function tab_color() {
   echo -n -e "\033]6;1;bg;red;brightness;$1\a"

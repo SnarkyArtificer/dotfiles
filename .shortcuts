@@ -9,7 +9,11 @@ alias mkdir='mkdir -pv'
 alias ping='ping -c 3'
 alias wget='wget -c'
 
-#brew 
+function mktouch {
+  mkdir -p $(dirname $1) && touch $1
+}
+
+#brew
 export HOMEBREW_GITHUB_API_TOKEN=putThisInBashProfileNoQuotes
 export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 
@@ -32,6 +36,10 @@ function git_closeout {
 
 function git_dammit {
   git checkout . ;
+}
+
+function git_dir {
+  mktouch "$1/.gitkeep"
 }
 
 function git_rebase_upstream {

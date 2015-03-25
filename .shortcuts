@@ -3,9 +3,9 @@
 ##[[ -s ~/.my_shortcuts/.shortcuts ]]  && source ~/.my_shortcuts/.shortcuts
 
 #unix tools
-alias ll='ls -l'
-alias ls='ll -hFG'
-alias mkdir='mkdir -pv'
+alias ll='ls -lh'
+alias ls='ls -G'
+alias mkdir='mkdir -p'
 alias ping='ping -c 3'
 alias wget='wget -c'
 

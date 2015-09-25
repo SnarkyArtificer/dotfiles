@@ -26,6 +26,8 @@ function brew_cask_upgrade {
     done
 }
 
+eval "$(thefuck --alias)"
+
 #git
 function git_closeout {
   git checkout $3 && \
@@ -73,4 +75,14 @@ function tab_color() {
   echo -n -e "\033]6;1;bg;red;brightness;$1\a"
   echo -n -e "\033]6;1;bg;green;brightness;$2\a"
   echo -n -e "\033]6;1;bg;blue;brightness;$3\a"
+}
+
+#safari
+
+function safari_new_window {
+
+  osascript -e "tell application \"Safari\"
+      make new document
+  end tell";
+
 }

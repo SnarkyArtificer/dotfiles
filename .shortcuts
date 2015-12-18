@@ -9,25 +9,6 @@ alias mkdir='mkdir -p'
 alias ping='ping -c 3'
 alias wget='wget -c'
 
-function mktouch {
-  mkdir -p $(dirname $1) && touch $1
-}
-
-#brew
-export HOMEBREW_GITHUB_API_TOKEN=putThisInBashProfileNoQuotes
-export HOMEBREW_CASK_OPTS='--appdir=/Applications'
-
-alias brew_improve='brew update && brew upgrade --all && brew cleanup'
-
-function brew_cask_upgrade {
-	brew update;
-	for i in $( brew cask list ); do
-        brew cask install $i
-    done
-}
-
-eval "$(thefuck --alias)"
-
 #git
 function git_closeout {
   git checkout $3 && \
@@ -58,7 +39,7 @@ function tab_name {
   printf "\e]1;$1\a"
 }
 
-#terminal Colors, shamelessly stolen from 
+#terminal Colors, shamelessly stolen from
 #https://github.com/jacaetevha/finna-be-octo-hipster
 #and tweaked to be ugly ;)
 
@@ -77,12 +58,3 @@ function tab_color() {
   echo -n -e "\033]6;1;bg;blue;brightness;$3\a"
 }
 
-#safari
-
-function safari_new_window {
-
-  osascript -e "tell application \"Safari\"
-      make new document
-  end tell";
-
-}

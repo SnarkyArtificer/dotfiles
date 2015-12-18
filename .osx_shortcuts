@@ -1,0 +1,23 @@
+
+#brew
+export HOMEBREW_GITHUB_API_TOKEN=putThisInBashProfileNoQuotes
+export HOMEBREW_CASK_OPTS='--appdir=/Applications'
+
+alias brew_improve='brew update && brew upgrade --all && brew cleanup'
+
+function brew_cask_upgrade {
+	brew update;
+	for i in $( brew cask list ); do
+        brew cask install $i
+    done
+}
+
+#safari
+
+function safari_new_window {
+
+  osascript -e "tell application \"Safari\"
+      make new document
+  end tell";
+
+}

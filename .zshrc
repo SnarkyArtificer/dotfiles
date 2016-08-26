@@ -1,5 +1,5 @@
 # load zgen
-source ${HOME}/.bash_profile
+#source ${HOME}/.bash_profile
 
 export ZSH_TMUX_AUTOSTART=true
 source ${HOME}/.zgen/zgen.zsh
@@ -18,3 +18,7 @@ if ! zgen saved; then
   # generate the init script from plugins above
   zgen save
 fi
+
+[[ -s ~/.my_shortcuts/.shortcuts ]]  && source ~/.my_shortcuts/.shortcuts
+[[ -s ~/.my_shortcuts/.osx_shortcuts ]]  && source ~/.my_shortcuts/.osx_shortcuts
+[[ -s ~/.ctct_shortcuts/.shortcuts ]]  && source ~/.ctct_shortcuts/.shortcuts

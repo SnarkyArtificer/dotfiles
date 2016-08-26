@@ -1,9 +1,19 @@
+# golang setup
+export GOPATH=$HOME/Workspaces/go
+export PATH=$GOPATH/bin:$PATH
+
+#nvm, split out because it's so slow
+function enable_nvm {
+  export NVM_DIR="$HOME/.nvm"
+    . "/usr/local/opt/nvm/nvm.sh"
+}
+
+#rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 #brew
-export HOMEBREW_GITHUB_API_TOKEN=putThisInBashProfileNoQuotes
+#export HOMEBREW_GITHUB_API_TOKEN=putThisInBashProfileNoQuotes
 export HOMEBREW_CASK_OPTS='--appdir=/Applications'
-
-alias brew_improve='brew update && brew upgrade --all && brew cleanup'
 
 function brew_cask_upgrade {
 	brew update;

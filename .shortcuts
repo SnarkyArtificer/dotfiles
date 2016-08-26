@@ -9,29 +9,8 @@ alias mkdir='mkdir -p'
 alias ping='ping -c 3'
 alias wget='wget -c'
 
-#git
-function git_closeout {
-  git checkout $3 && \
-  git pull $1 $3 && \
-  git branch -d "$2" && \
-  git push origin :"$2";
-}
-
-function git_dammit {
-  git checkout . ;
-}
-
 function git_dir {
   mktouch "$1/.gitkeep"
-}
-
-function git_rebase_upstream {
-  git checkout $2 && \
-  git pull $1 $2 &&  \
-  git push origin $2 && \
-  git checkout $3 && \
-  git merge $2 && \
-  git rebase -i $2; \
 }
 
 #terminal functions
@@ -58,6 +37,3 @@ function tab_color() {
   echo -n -e "\033]6;1;bg;blue;brightness;$3\a"
 }
 
-# golang setup
-export GOPATH=$HOME/Workspaces/go
-export PATH=$GOPATH/bin:$PATH

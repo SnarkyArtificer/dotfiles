@@ -1,5 +1,7 @@
 # load zgen
 source ${HOME}/.bash_profile
+
+export ZSH_TMUX_AUTOSTART=true
 source ${HOME}/.zgen/zgen.zsh
 
 # if the init scipt doesn't exist
@@ -11,7 +13,7 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/git
   zgen oh-my-zsh plugins/tmux
   zgen oh-my-zsh themes/gnzh
-  zgen load martnu/glimmer
+  zgen load zsh-users/zsh-syntax-highlighting
 
   # generate the init script from plugins above
   zgen save

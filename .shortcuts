@@ -58,3 +58,6 @@ function tab_color() {
   echo -n -e "\033]6;1;bg;blue;brightness;$3\a"
 }
 
+# golang setup
+export GOPATH=$HOME/Workspaces/go
+export PATH=$GOPATH/bin:$PATH

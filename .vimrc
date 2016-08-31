@@ -10,6 +10,7 @@ Plug 'tpope/vim-endwise'
 Plug 'airblade/vim-gitgutter'
 Plug 'rodjek/vim-puppet', { 'for' : 'puppet' }
 Plug 'fatih/vim-go', { 'for' : 'go' }
+Plug 'elzr/vim-json', {'for' : 'json'}
 
 Plug 'jpo/vim-railscasts-theme'
 

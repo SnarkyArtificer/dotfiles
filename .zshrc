@@ -12,7 +12,7 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/osx
   zgen oh-my-zsh plugins/git
   zgen oh-my-zsh plugins/tmux
-  zgen oh-my-zsh themes/gnzh
+  zgen oh-my-zsh themes/gentoo
   zgen load zsh-users/zsh-syntax-highlighting
 
   # generate the init script from plugins above

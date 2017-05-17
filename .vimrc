@@ -9,11 +9,10 @@ Plug 'scrooloose/syntastic'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tpope/vim-endwise'
 Plug 'airblade/vim-gitgutter'
-Plug 'rodjek/vim-puppet', { 'for' : 'puppet' }
-Plug 'fatih/vim-go', { 'for' : 'go' }
-Plug 'elzr/vim-json', {'for' : 'json'}
+Plug 'sheerun/vim-polyglot'
 
 Plug 'jpo/vim-railscasts-theme'
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
@@ -34,6 +33,7 @@ let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 set tabstop=2 shiftwidth=2 expandtab
 set number
 set autoread
+syntax enable
 
 set background=dark
-colorscheme railscasts
+colorscheme solarized

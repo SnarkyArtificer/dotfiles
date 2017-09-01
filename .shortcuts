@@ -8,12 +8,8 @@ alias ls='ls -G'
 alias mkdir='mkdir -p'
 alias ping='ping -c 3'
 alias wget='wget -c'
+alias tl='tmuxp load'
 
-function git_dir {
-  mktouch "$1/.gitkeep"
-}
-
-#terminal functions
 function tab_name {
   printf "\e]1;$1\a"
 }
@@ -37,3 +33,6 @@ function tab_color() {
   echo -n -e "\033]6;1;bg;blue;brightness;$3\a"
 }
 
+function proj(){
+  PROJECT_NAME=$1 tmuxp load git_project
+}

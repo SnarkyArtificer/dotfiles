@@ -51,7 +51,7 @@ let g:ale_fixers = {
 \   'vim': ['vint']
 \}
 
-:map <C-t> :NERDTreeToggle<CR>
+:map <C-n> :NERDTreeToggle<CR>
 :map <C-f> :Ack<Space>
-:map <C-p> :FZF<Space>
+:map <C-p> :FZF<CR>
 

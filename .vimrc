@@ -44,6 +44,8 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
+let NERDTreeShowHidden=1
+
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'ruby': ['rubocop'],

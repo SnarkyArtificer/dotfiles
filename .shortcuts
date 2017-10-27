@@ -8,7 +8,7 @@ alias ls='ls -G'
 alias mkdir='mkdir -p'
 alias ping='ping -c 3'
 alias wget='wget -c'
-alias tl='tmuxp load'
+alias tpl='tmuxp load'
 
 function tab_name {
   printf "\e]1;$1\a"

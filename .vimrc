@@ -10,8 +10,7 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'scrooloose/nerdtree'
 Plug 'w0rp/ale'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 
 Plug 'tpope/vim-eunuch'
 
@@ -39,6 +38,10 @@ syntax enable
 
 set background=dark
 colorscheme solarized
+
+let g:lightline = {
+\ 'colorscheme': 'solarized',
+\ }
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'

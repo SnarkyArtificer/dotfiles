@@ -31,6 +31,8 @@ Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
+set clipboard=unnamed
+
 " set tabstop=2 shiftwidth=2 expandtab
 set number
 set autoread

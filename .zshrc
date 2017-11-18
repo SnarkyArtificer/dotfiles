@@ -2,6 +2,7 @@
 source ${HOME}/.bash_profile
 
 export ZSH_TMUX_AUTOSTART=false
+export ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc ${HOME}/.zshrc.local)
 source ${HOME}/.zgen/zgen.zsh
 alias ssh="TERM=xterm ssh"
 # if the init scipt doesn't exist

@@ -41,6 +41,8 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+set directory=$HOME/.swapfiles//
+
 let g:lightline = {
 \ 'colorscheme': 'solarized',
 \ }

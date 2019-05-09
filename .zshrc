@@ -13,6 +13,10 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/osx
   zgen oh-my-zsh plugins/git
   zgen oh-my-zsh plugins/tmux
+  zgen oh-my-zsh plugins/brew
+  zgen oh-my-zsh plugins/gradle
+  zgen oh-my-zsh plugins/helm
+  zgen oh-my-zsh plugins/kubectl
   zgen oh-my-zsh themes/ys
   zgen load zsh-users/zsh-syntax-highlighting
 
@@ -40,3 +44,7 @@ if _has fzf && _has ag; then
 fi
 
 
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/xbbnrn1/.sdkman"
+[[ -s "/Users/xbbnrn1/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/xbbnrn1/.sdkman/bin/sdkman-init.sh"

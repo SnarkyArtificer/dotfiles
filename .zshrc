@@ -1,49 +1,64 @@
 # load zgen
-source ${HOME}/.bash_profile
-
 export ZSH_TMUX_AUTOSTART=false
-export ZGEN_RESET_ON_CHANGE=(${HOME}/.zshrc ${HOME}/.zshrc.local)
-source ${HOME}/.zgen/zgen.zsh
+export ZGENOM_RESET_ON_CHANGE=(${HOME}/.zshrc ${HOME}/.zshrc.local)
+source ${HOME}/.zgenom/zgenom.zsh
 alias ssh="TERM=xterm ssh"
 # if the init scipt doesn't exist
-if ! zgen saved; then
+if ! zgenom saved; then
 
   # specify plugins here
-  zgen oh-my-zsh
-  zgen oh-my-zsh plugins/osx
-  zgen oh-my-zsh plugins/git
-  zgen oh-my-zsh plugins/tmux
-  zgen oh-my-zsh plugins/brew
-  zgen oh-my-zsh plugins/gradle
-  zgen oh-my-zsh plugins/helm
-  zgen oh-my-zsh plugins/kubectl
-  zgen oh-my-zsh themes/ys
-  zgen load zsh-users/zsh-syntax-highlighting
+  zgenom oh-my-zsh
+  zgenom oh-my-zsh plugins/osx
+  zgenom oh-my-zsh plugins/git
+  zgenom oh-my-zsh plugins/tmux
+  zgenom oh-my-zsh plugins/brew
+  zgenom oh-my-zsh plugins/fzf
+  zgenom oh-my-zsh plugins/gradle
+  zgenom oh-my-zsh plugins/helm
+  zgenom oh-my-zsh plugins/kubectl
+  zgenom oh-my-zsh themes/ys
+  zgenom load zsh-users/zsh-syntax-highlighting
 
   # generate the init script from plugins above
-  zgen save
+  zgenom save
 fi
 
-# Returns whether the given command is executable or aliased.
-_has() {
-  return $( whence $1 >/dev/null )
+alias ll='ls -lh'
+alias ls='ls -G'
+alias mkdir='mkdir -p'
+alias ping='ping -c 3'
+alias wget='wget -c'
+alias tpl='tmuxp load'
+
+function tab_name {
+  printf "\e]1;$1\a"
 }
 
+#terminal Colors, shamelessly stolen from
+#https://github.com/jacaetevha/finna-be-octo-hipster
+#and tweaked to be ugly ;)
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+function tab_red()    { tab_color 200 32  32; }
+function tab_orange() { tab_color 220 140 32; }
+function tab_green()  { tab_color 32  200 32; }
+function tab_light_blue()   { tab_color 32 64 200; }
+function tab_blue()   { tab_color 32  64 200; }
+function tab_purple()  { tab_color 160 32 160; }
+function tab_yellow() { tab_color 200 200 32; }
+function tab_white()  { tab_color 255 255 255; }
 
-if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
-  source /usr/local/opt/fzf/shell/key-bindings.zsh
-  source /usr/local/opt/fzf/shell/completion.zsh
-fi
+function tab_color() {
+  echo -n -e "\033]6;1;bg;red;brightness;$1\a"
+  echo -n -e "\033]6;1;bg;green;brightness;$2\a"
+  echo -n -e "\033]6;1;bg;blue;brightness;$3\a"
+}
 
-if _has fzf && _has ag; then
-  export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
-  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-  export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
-fi
+function proj(){
+  PROJECT_NAME=$1 tmuxp load git_project
+}
 
-
+[[ -s ~/.secondary_dotfiles/.shortcuts ]] && \
+  source ~/.secondary_dotfiles/.shortcuts
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/xbbnrn1/.sdkman"

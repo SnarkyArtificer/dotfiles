@@ -29,7 +29,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'hashivim/vim-terraform'
 
 Plug 'jpo/vim-railscasts-theme'
-Plug 'altercation/vim-colors-solarized'
+Plug 'jacoborus/tender.vim'
 
 call plug#end()
 
@@ -41,12 +41,12 @@ set autoread
 syntax enable
 
 set background=dark
-colorscheme solarized
+colorscheme tender
 
 set directory=$HOME/.swapfiles//
 
 let g:lightline = {
-\ 'colorscheme': 'solarized',
+\ 'colorscheme': 'tender',
 \ }
 
 if executable('ag')

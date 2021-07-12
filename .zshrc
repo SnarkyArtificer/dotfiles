@@ -16,7 +16,7 @@ if ! zgenom saved; then
   zgenom oh-my-zsh plugins/gradle
   zgenom oh-my-zsh plugins/helm
   zgenom oh-my-zsh plugins/kubectl
-  zgenom oh-my-zsh themes/ys
+  #zgenom oh-my-zsh themes/ys
   zgenom load zsh-users/zsh-syntax-highlighting
 
   # generate the init script from plugins above
@@ -59,6 +59,10 @@ function proj(){
 
 [[ -s ~/.secondary_dotfiles/.shortcuts ]] && \
   source ~/.secondary_dotfiles/.shortcuts
+
+eval "$(starship init zsh)"
+
+cd ~/Workspaces
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/xbbnrn1/.sdkman"

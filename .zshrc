@@ -34,35 +34,20 @@ function tab_name {
   printf "\e]1;$1\a"
 }
 
-#terminal Colors, shamelessly stolen from
-#https://github.com/jacaetevha/finna-be-octo-hipster
-#and tweaked to be ugly ;)
-
-function tab_red()    { tab_color 200 32  32; }
-function tab_orange() { tab_color 220 140 32; }
-function tab_green()  { tab_color 32  200 32; }
-function tab_light_blue()   { tab_color 32 64 200; }
-function tab_blue()   { tab_color 32  64 200; }
-function tab_purple()  { tab_color 160 32 160; }
-function tab_yellow() { tab_color 200 200 32; }
-function tab_white()  { tab_color 255 255 255; }
-
-function tab_color() {
-  echo -n -e "\033]6;1;bg;red;brightness;$1\a"
-  echo -n -e "\033]6;1;bg;green;brightness;$2\a"
-  echo -n -e "\033]6;1;bg;blue;brightness;$3\a"
-}
-
 function proj(){
   PROJECT_NAME=$1 tmuxp load git_project
 }
+
+if [[ -d "/Users/${USER}/Workspaces" ]] && [[ "$(pwd)" == "/Users/${USER}" ]]; then
+  cd ~/Workspaces
+fi
+
+eval "$(pyenv init --path)"
 
 [[ -s ~/.secondary_dotfiles/.shortcuts ]] && \
   source ~/.secondary_dotfiles/.shortcuts
 
 eval "$(starship init zsh)"
-
-cd ~/Workspaces
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/xbbnrn1/.sdkman"

@@ -8,7 +8,7 @@ if ! zgenom saved; then
 
   # specify plugins here
   zgenom oh-my-zsh
-  zgenom oh-my-zsh plugins/osx
+  zgenom oh-my-zsh plugins/macos
   zgenom oh-my-zsh plugins/git
   zgenom oh-my-zsh plugins/tmux
   zgenom oh-my-zsh plugins/brew
@@ -42,7 +42,7 @@ if [[ -d "/Users/${USER}/Workspaces" ]] && [[ "$(pwd)" == "/Users/${USER}" ]]; t
   cd ~/Workspaces
 fi
 
-eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 
 [[ -s ~/.secondary_dotfiles/.shortcuts ]] && \
   source ~/.secondary_dotfiles/.shortcuts

@@ -1,0 +1,9 @@
+session_name: ${PROJECT_NAME}
+start_directory: ~/Workspaces/${PROJECT_NAME}/
+windows:
+  - window_name: ${PROJECT_NAME}
+    panes:
+      #- shell_command:
+      #  - vim .
+      - shell_command:
+        - gss

@@ -1,3 +1,12 @@
 Host *
   AddKeysToAgent yes
+  UseKeychain yes
   IdentityFile ~/.ssh/id_ed25519
+
+{{- if eq .chezmoi.hostname "mbp-xbbnrn1" }}
+Host *.az.eagleinvsys.com
+  AddKeysToAgent yes
+  UseKeychain yes
+  User ansible
+  IdentityFile ~/.ssh/ansible
+{{- end }}

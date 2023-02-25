@@ -1,11 +1,11 @@
 [data]
-{{- if eq .chezmoi.hostname "pinhead" }}
-    git_name = "SnarkyArtificer"
-    git_email = "SnarkyArtificer@users.noreply.github.com"
-{{- end }}
 {{- if eq .chezmoi.hostname "mbp-xbbnrn1" }}
     git_name = "McAfee"
     git_email = "pmcafee@eagleinvsys.com"
+{{ else }}
+    git_name = "SnarkyArtificer"
+    git_email = "SnarkyArtificer@users.noreply.github.com"
 {{- end }}
+
 
     

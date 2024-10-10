@@ -34,8 +34,11 @@ alias tpl='tmuxp load'
 
 
 alias kcn='k get nodes --no-headers | cut -d' ' -f1 | cut -d'-' -f2 | uniq -c | sort -nr'
+
+{{- if eq .chezmoi.hostname "mbp-xbbnrn1" }}
 alias tg='terragrunt'
 alias tf='terraform'
+{{- end }}
 
 {{ if eq .chezmoi.os "darwin" -}}
 function update_mac(){

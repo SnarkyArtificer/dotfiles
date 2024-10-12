@@ -8,12 +8,14 @@ if ! zgenom saved; then
 
   # specify plugins here
   zgenom oh-my-zsh
+{{ if eq .chezmoi.os "darwin" -}}
   zgenom oh-my-zsh plugins/macos
+{{ end }}
   zgenom oh-my-zsh plugins/git
   zgenom oh-my-zsh plugins/tmux
   zgenom oh-my-zsh plugins/brew
   zgenom oh-my-zsh plugins/fzf
-  #zgenom oh-my-zsh themes/ys
+  # zgenom oh-my-zsh themes/ys
   zgenom load zsh-users/zsh-syntax-highlighting
 {{- if eq .chezmoi.hostname "mbp-xbbnrn1" }}
   zgenom oh-my-zsh plugins/kubectl
@@ -69,9 +71,11 @@ function proj(){
   PROJECT_NAME=$1 tmuxp load git_project
 }
 
+{{- if eq .chezmoi.hostname "mbp-xbbnrn1" }}
 if [[ -d "/Users/${USER}/Workspaces" ]] && [[ "$(pwd)" == "/Users/${USER}" ]]; then
   cd ~/Workspaces
 fi
+{{- end }}
 
 eval "$(/opt/homebrew/bin/mise activate zsh)"
 eval "$(starship init zsh)"

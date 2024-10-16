@@ -5,7 +5,7 @@ Host *
 {{- end }}
   IdentityFile ~/.ssh/id_ed25519
 
-{{- if eq .chezmoi.hostname "mbp-xbbnrn1" }}
+{{- if eq .usage "eagle" }}
 Host *.az.eagleinvsys.com
   AddKeysToAgent yes
   UseKeychain yes

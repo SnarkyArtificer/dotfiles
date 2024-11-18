@@ -81,6 +81,6 @@ eval "$(starship init zsh)"
 
 {{- if eq .usage "eagle" }}
 export VAULT_ADDR='https://vault.engops.az.eagleinvsys.com'
-export SSL_CERT_FILE='/private/etc/sslo/cert.pem'
+export SSL_CERT_FILE='/private/etc/ssl/cert.pem'
 export REQUESTS_CA_BUNDLE=$SSL_CERT_FILE
 {{- end }}

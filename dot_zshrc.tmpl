@@ -12,7 +12,7 @@ if ! zgenom saved; then
   zgenom oh-my-zsh plugins/macos
 {{- end }}
   zgenom oh-my-zsh plugins/git
-  zgenom oh-my-zsh plugins/tmux
+  # zgenom oh-my-zsh plugins/tmux
   zgenom oh-my-zsh plugins/brew
   zgenom oh-my-zsh plugins/fzf
   # zgenom oh-my-zsh themes/ys
@@ -56,7 +56,6 @@ function update_mac(){
 
 {{- if eq .usage "eagle" }}
   vault_login() {
-    export VAULT_ADDR='https://vault.engops.az.eagleinvsys.com'
     vault login -method=ldap username="$(whoami)"
     export VAULT_TOKEN=$(cat ~/.vault-token)
   }
@@ -79,3 +78,9 @@ fi
 
 eval "$(/opt/homebrew/bin/mise activate zsh)"
 eval "$(starship init zsh)"
+
+{{- if eq .usage "eagle" }}
+export VAULT_ADDR='https://vault.engops.az.eagleinvsys.com'
+export SSL_CERT_FILE='/private/etc/sslo/cert.pem'
+export REQUESTS_CA_BUNDLE=$SSL_CERT_FILE
+{{- end }}

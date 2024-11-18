@@ -1,4 +1,4 @@
-{{- if not eq .usage "eagle" }}
+{{- if not (eq .usage "eagle") }}
 Host *
   AddKeysToAgent yes
 {{- if eq .chezmoi.os "darwin" }}

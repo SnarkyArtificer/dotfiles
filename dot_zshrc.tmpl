@@ -34,13 +34,7 @@ alias ping='ping -c 3'
 alias wget='wget -c'
 alias tpl='tmuxp load'
 
-
 alias kcn='k get nodes --no-headers | cut -d' ' -f1 | cut -d'-' -f2 | uniq -c | sort -nr'
-
-{{- if eq .usage "eagle" }}
-alias tg='terragrunt'
-alias tf='terraform'
-{{- end }}
 
 {{ if eq .chezmoi.os "darwin" -}}
 function update_mac(){
@@ -54,13 +48,6 @@ function update_mac(){
 }
 {{ end }}
 
-{{- if eq .usage "eagle" }}
-  vault_login() {
-    vault login -method=ldap username="$(whoami)"
-    export VAULT_TOKEN=$(cat ~/.vault-token)
-  }
-{{- end }}
-
 
 function tab_name {
   printf "\e]1;$1\a"
@@ -71,16 +58,24 @@ function proj(){
 }
 
 {{- if eq .usage "eagle" }}
+alias tg='terragrunt'
+alias tf='terraform'
+
+export VAULT_ADDR="https://vault.engops.az.eagleinvsys.com"
+export PYPI_INDEX_URL="https://artifactory.engops.az.eagleinvsys.com/artifactory/api/pypi/pypi-local/simple"
+'
+export SSL_CERT_FILE="/private/etc/ssl/cert.pem"
+export REQUESTS_CA_BUNDLE=$SSL_CERT_FILE
+
 if [[ -d "/Users/${USER}/Workspaces" ]] && [[ "$(pwd)" == "/Users/${USER}" ]]; then
   cd ~/Workspaces
 fi
+
+function vault_login() {
+  vault login -method=ldap username="$(whoami)"
+  export VAULT_TOKEN=$(cat ~/.vault-token)
+}
 {{- end }}
 
 eval "$(/opt/homebrew/bin/mise activate zsh)"
 eval "$(starship init zsh)"
-
-{{- if eq .usage "eagle" }}
-export VAULT_ADDR='https://vault.engops.az.eagleinvsys.com'
-export SSL_CERT_FILE='/private/etc/ssl/cert.pem'
-export REQUESTS_CA_BUNDLE=$SSL_CERT_FILE
-{{- end }}

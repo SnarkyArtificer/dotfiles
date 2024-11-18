@@ -1,9 +1,11 @@
+{{- if not eq .usage "eagle" }}
 Host *
   AddKeysToAgent yes
 {{- if eq .chezmoi.os "darwin" }}
   UseKeychain yes
 {{- end }}
   IdentityFile ~/.ssh/id_ed25519
+{{- end }}
 
 {{- if eq .usage "eagle" }}
 Host *.az.eagleinvsys.com
@@ -11,4 +13,9 @@ Host *.az.eagleinvsys.com
   UseKeychain yes
   User ansible
   IdentityFile ~/.ssh/ansible
+
+Host *.github.com
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
 {{- end }}

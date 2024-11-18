@@ -17,9 +17,9 @@ if ! zgenom saved; then
   zgenom oh-my-zsh plugins/fzf
   # zgenom oh-my-zsh themes/ys
   zgenom load zsh-users/zsh-syntax-highlighting
-{{- if eq .usage "eagle" }}
   zgenom oh-my-zsh plugins/kubectl
   zgenom oh-my-zsh plugins/helm
+{{- if eq .usage "eagle" }}
   zgenom oh-my-zsh plugins/gradle
 {{- end }}
 

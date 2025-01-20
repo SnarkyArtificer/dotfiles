@@ -1,0 +1,4 @@
+---
+floating:
+  - id: com.googlecode.iterm2
+    window-titles: ["Popdown"]
